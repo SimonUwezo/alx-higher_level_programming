@@ -1,21 +1,19 @@
 #!/usr/bin/python3
 """
-    Unittest for Base
+Unittest for Base
 """
 
 import unittest
-from models import base
-Base = base.Base
-
-
+from ..models.base import Base
 
 class TestBase(unittest.TestCase):
     """
-        test for Base
+    Test cases for Base class
     """
+
     def test_creation_id(self):
         """
-            test if value of id has the good assignment
+        Test if value of id has the correct assignment
         """
         b1 = Base()
         b2 = Base()
@@ -36,13 +34,18 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b8.id, 5)
 
     def test_to_json_string(self):
+        """
+        Test the to_json_string method
+        """
         json_string = Base.to_json_string(None)
         self.assertEqual(json_string, '[]')
 
     def test_from_json_string(self):
+        """
+        Test the from_json_string method
+        """
         json_string = Base.from_json_string(None)
         self.assertEqual(json_string, [])
-
 
 if __name__ == '__main__':
     unittest.main()
